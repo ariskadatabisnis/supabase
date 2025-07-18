@@ -6,12 +6,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { Prism, themes, Highlight, Language } from 'prism-react-renderer'
-import { PropsWithChildren, useEffect, useRef, useState } from 'react'
 import { useTheme } from 'next-themes'
+import { Highlight, Language, Prism, themes } from 'prism-react-renderer'
+import { PropsWithChildren, useEffect, useRef, useState } from 'react'
+import { Button } from './../Button'
+import { cn } from './../../lib/utils/cn'
+import { copyToClipboard } from '../../lib/utils'
 import { dart } from './prism'
-import { copyToClipboard } from '../../lib/utils/clipboard'
-import { Button } from '../Button'
 
 dart(Prism)
 
@@ -62,7 +63,7 @@ export const SimpleCodeBlock = ({
       {({ className, tokens, getLineProps, getTokenProps }) => {
         return (
           <div className="Code codeBlockWrapper group">
-            <pre ref={target} className={`codeBlock ${className} ${parentClassName}`}>
+            <pre ref={target} className={cn('codeBlock', className, parentClassName)}>
               {tokens.map((line, i) => {
                 const lineProps = getLineProps({ line, key: i })
 
