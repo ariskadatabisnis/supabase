@@ -40,7 +40,7 @@ Compute sizes can be changed by first selecting your project in the dashboard [h
 
 We charge hourly for additional compute based on your usage. Read more about [usage-based billing for compute](/docs/guides/platform/org-based-billing#billing-for-compute-compute-hours).
 
-## Dedicated vs. shared CPU
+## Dedicated vs. Shared CPU
 
 All Postgres instances on Supabase are dedicated applications running inside dedicated virtual machines. However, the underlying hardware resources, for example the physical CPU, may be shared between multiple VMs, but appear to the OS as if it is a dedicated hardware CPU. This is commonly referred to as a vCPU (virtual CPU). Cloud providers use these shared hardware resources to save cost—you can upgrade to a larger compute add-on to guarantee a dedicated physical CPU for your instance.
 
@@ -75,7 +75,7 @@ Disk throughput is capped at 19,000 Mbps and IOPS is capped at 80,000 IOPS for a
 | 12XL           | 14,250 Mbps         | 14,250 Mbps              | 50,000 IOPS | 50,000 IOPS   |
 | 16XL           | 19,000 Mbps         | 19,000 Mbps              | 80,000 IOPS | 80,000 IOPS   |
 
-### Self-Serve Configurability
+### Self-Serve configurability
 
 You can now adjust storage type, IOPS, throughput and disk size parameters yourself through the Dashboard [here](https://supabase.com/dashboard/project/_/settings/database).
 
@@ -87,17 +87,17 @@ Be aware that increasing IOPS or throughput incur additional charges.
 
 </Admonition>
 
-### Understanding I/O Balance and Bursting (Smaller add-ons)
+### Understanding I/O balance and bursting (smaller add-ons)
 
 For smaller add-ons like Nano, Micro, and Small, you get I/O balance and burst capacity. These add-ons have limited base performance for IOPS and throughput. However, they come with burst credits that let you handle temporary spikes for 30 minutes in a day in demand by briefly exceeding their baseline performance. This means you can achieve higher performance for short bursts before reverting to your baseline limits.
 
 For example, the micro add-on can burst up to 2,085 Mbps for 30 minutes a day and reverts to the baseline performance of 87 Mbps. Your disk IO budget gets replenished throughout the day.
 
-### Dedicated I/O Resources (Larger add-ons)
+### Dedicated I/O resources (larger add-ons)
 
 Larger add-ons, such as 4XL and above, come with dedicated I/O resources and don't rely on I/O balance or burst capacity. These add-ons are designed for sustained, high performance with specific IOPS and throughput limits. They provide consistent performance without needing to burst. If you hit your IOPS or throughput limit, throttling will occur, but you won't have burst credits to exceed these limits.
 
-### Storage Volume Types: gp3 vs. io2
+### Storage volume types: Gp3 vs. Io2
 
 When selecting your storage volume, it’s essential to focus on the performance needs of your workload. Below is a comparison between the two main volume types we offer:
 
@@ -118,7 +118,7 @@ This option is designed for high-performance needs where low latency and very hi
 **Choosing the Right Type**
 Think about the performance your workload demands. For general, day-to-day operations, gp3 should be more than enough. If you need high throughput and IOPS for critical systems, io2 will provide the performance required.
 
-### Choosing the Right Compute Add-On for Consistent Disk Performance
+### Choosing the right Compute add-on for consistent Disk performance
 
 If you need consistent disk performance, choose the 4XL or larger compute add-on which has the same baseline and maximum disk throughput and IOPS.
 
