@@ -16,7 +16,7 @@ create schema partman;
 create extension pg_partman schema partman;
 ```
 
-## Setting up Partitioning
+## Setting up partitioning
 
 pg_partman supports partitioning based on time (e.g., by day, month, or year) or by a sequential integer. Setup is performed using the `create_parent` function.
 
@@ -76,7 +76,7 @@ For more information about available configuration, see the [pg_partman docs](ht
 
 Following these statements, partitions for `public.foo` will be automatically managed as necessary when the `partman.run_maintenance()` function is called.
 
-## Running Maintenance
+## Running maintenance
 
 It is important to call the `partman.run_maintenance()` procedure frequently to ensure partitions are created and detached according to the partitioned table's configuration.
 
